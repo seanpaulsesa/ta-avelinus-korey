@@ -26,4 +26,25 @@ TA / TUGAS AKHIR SKRIPSI TAHUN 2025
 ![](./public/assets/img/7.png)
 
 
+## Tampilan Halaman Pindah Masuk
+![](./public/assets/img/8.png)
+
+## Tampilan Halaman Pindah Keluar
+![](./public/assets/img/9.png)
+
+## Tampilan Halman Draft
+![](./public/assets/img/10.png)
+
+## Tampilan Halaman Alumni
+![](./public/assets/img/11.png)
+
+## Tampilan Halaman Semua Kampus
+![](./public/assets/img/12.png)
+
+## Tampilan Halaman Semua Fakultas
+![](./public/assets/img/13.png)
+
+## Tampilan Halaman Semua Program Studi
+![](./public/assets/img/14.png)
+
 
