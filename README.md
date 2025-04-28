@@ -7,7 +7,7 @@ Saya seorang Mahasiswa di Universitas Cenderawasih Jayapura Papua Indonesia.
 dan saya mengambil jurusan Strata Satu S1 Sistem informasi
 
 ## Tampilan Hasil Screenshot
-<h2>Tampilan Halaman Login</h2>
-![](1.png)
+Tampilan Halaman Login
+![](./public/assets/img/1.png)
 
 
