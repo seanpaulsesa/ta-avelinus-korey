@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\pimpinan;
 
 use App\Http\Controllers\Controller;
 
@@ -21,7 +21,7 @@ class DasborController extends Controller
         $pageTitle = 'Dasbor';
         $pageDescription = 'Halaman utama sistem informasi ketika pengguna berhasil login. Menampilkan berbagai rekapan data hasil pengelolaan pada sistem informasi.';
     
-        return view('admin.dasbor', compact(
+        return view('pimpinan.dasbor', compact(
             'pageTitle',
             'pageDescription'
             

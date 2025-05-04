@@ -158,6 +158,8 @@
 
                             <!-- Buttons -->
                             <div class="form-group">
+
+                                @if(auth()->user()->hasRole('admin'))
                             
                                 <!-- Tombol Ubah -->
                                 <a href="{{ route('admin.anggota.edit', $data->id) }}" class="btn btn-dark">
@@ -168,9 +170,11 @@
                                 <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#forceDeleteModal{{ $data->id }}" title="Hapus Permanen">
                                     <i class="fa fa-trash"></i> Hapus
                                 </a>
+
+                                @endif
                             
                                 <!-- Tombol Kembali -->
-                                <a href="{{ route('admin.anggota') }}" class="btn">
+                                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.anggota') : route('pimpinan.anggota') }}" class="btn">
                                     <i class="fa fa-arrow-left"></i> Kembali 
                                 </a>
 

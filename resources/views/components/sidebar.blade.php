@@ -25,7 +25,9 @@
     <div class="sidebar-content">
       <ul class="nav nav-secondary">
 
-
+      @if(auth()->user()->hasRole('admin'))
+      
+      @endif
 
 
         <li class="nav-item active">
@@ -37,7 +39,7 @@
           <div class="collapse @if(Request::segment(2) == 'dasbor' || Request::segment(2) == '') show @endif" id="dasbor">
             <ul class="nav nav-collapse">
               <li @if(Request::segment(2) == 'dasbor' || Request::segment(2) == '') class="active" @endif>
-                <a href="{{ route('admin.dasbor') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.dasbor') : route('pimpinan.dasbor') }}">
                   <span class="sub-item">Dasbor</span>
                 </a>
               </li>
@@ -70,19 +72,19 @@
             <ul class="nav nav-collapse">
               
               <li @if(Request::segment(2) == 'statistik' && Request::segment(3) == 'anggota') class="active" @endif">
-                <a href="{{ route('statistik.anggota') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.statistik.anggota') : route('pimpinan.statistik.anggota') }}">
                   <span class="sub-item">Statistik Anggota Berdasarkan Status</span>
                 </a>
               </li>
               
               <li @if(Request::segment(2) == 'statistik' && Request::segment(3) == 'alumni') class="active" @endif">
-                <a href="{{ route('statistik.alumni') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.statistik.alumni') : route('pimpinan.statistik.alumni') }}">
                   <span class="sub-item">Statistik Alumni</span>
                 </a>
               </li>
               
               <li @if(Request::segment(2) == 'statistik' && Request::segment(3) == 'program-studi') class="active" @endif">
-                <a href="{{ route('statistik.programstudi') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.statistik.programstudi') : route('pimpinan.statistik.programstudi') }}">
                   <span class="sub-item">Statistik Program Studi, Fakultas & Universitas</span>
                 </a>
               </li>
@@ -118,37 +120,37 @@
             <ul class="nav nav-collapse">
               
               <li @if(Request::segment(2) == 'anggota' && Request::segment(3) == '') class="active" @endif>
-                <a href="{{ route('admin.anggota') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.anggota') : route('pimpinan.anggota') }}">
                   <span class="sub-item">Semua Anggota</span>
                 </a>
               </li>
 
               <li @if(Request::segment(3) == 'baru') class="active" @endif>
-                <a href="{{ route('admin.anggota.baru') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.anggota.baru') : route('pimpinan.anggota.baru') }}">
                   <span class="sub-item">Anggota Baru</span>
                 </a>
               </li>
 
               <li @if(Request::segment(3) == 'pindahmasuk') class="active" @endif>
-                <a href="{{ route('admin.anggota.pindahMasuk') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.anggota.pindahMasuk') : route('pimpinan.anggota.pindahMasuk') }}">
                   <span class="sub-item">Pindah Masuk</span>
                 </a>
               </li>
 
               <li @if(Request::segment(3) == 'pindahkeluar') class="active" @endif>
-                <a href="{{ route('admin.anggota.pindahKeluar') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.anggota.pindahKeluar') : route('pimpinan.anggota.pindahKeluar') }}">
                   <span class="sub-item">Pindah Keluar</span>
                 </a>
               </li>
 
               <li @if(Request::segment(3) == 'draft') class="active" @endif>
-                <a href="{{ route('admin.anggota.draft') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.anggota.draft') : route('pimpinan.anggota.draft') }}">
                   <span class="sub-item">Draft</span>
                 </a>
               </li>
 
               <li @if(Request::segment(3) == 'alumni') class="active" @endif>
-                <a href="{{ route('admin.anggota.alumni') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.anggota.alumni') : route('pimpinan.anggota.alumni') }}">
                   <span class="sub-item">Alumni</span>
                 </a>
               </li>
@@ -171,19 +173,19 @@
             <ul class="nav nav-collapse">
               
               <li @if(Request::segment(2) == 'kampus') class="active" @endif>
-                <a href="{{ route('admin.kampus.index') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.kampus.index') : route('pimpinan.kampus.index') }}">
                   <span class="sub-item">Kampus</span>
                 </a>
               </li>
 
               <li @if(Request::segment(2) == 'fakultas') class="active" @endif>
-                <a href="{{ route('admin.fakultas.index') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.fakultas.index') : route('pimpinan.fakultas.index') }}">
                   <span class="sub-item">Fakultas</span>
                 </a>
               </li>
 
               <li @if(Request::segment(2) == 'programstudi') class="active" @endif>
-                <a href="{{ route('admin.programstudi.index') }}">
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.programstudi.index') : route('pimpinan.programstudi.index') }}">
                   <span class="sub-item">Program Studi</span>
                 </a>
               </li>

@@ -12,6 +12,9 @@ use App\Http\Controllers\admin\DasborController as AdminDasborController;
 // operator
 use App\Http\Controllers\admin\DasborController as OperatorDasborController;
 
+// pimpinan
+use App\Http\Controllers\pimpinan\DasborController as PimpinanDasborController;
+
 // theme setups
 use App\Http\Controllers\ThemeController;
 
@@ -49,13 +52,13 @@ Route::group(['middleware' => ['auth']], function () {
         // STATISTIK
 
         // Statistik Anggota Berdasarkan Status
-        Route::get('/statistik/anggota', [AdminDasborController::class, 'getStatistikAnggota'])->name('statistik.anggota');
+        Route::get('/statistik/anggota', [AdminDasborController::class, 'getStatistikAnggota'])->name('admin.statistik.anggota');
         
         // Statistik Alumni
-        Route::get('/statistik/alumni', [AdminDasborController::class, 'getStatistikAlumni'])->name('statistik.alumni');
+        Route::get('/statistik/alumni', [AdminDasborController::class, 'getStatistikAlumni'])->name('admin.statistik.alumni');
         
         // Statistik Program Studi, Fakultas & Universitas
-        Route::get('/statistik/program-studi', [AdminDasborController::class, 'getStatistikProgramStudi'])->name('statistik.programstudi');
+        Route::get('/statistik/program-studi', [AdminDasborController::class, 'getStatistikProgramStudi'])->name('admin.statistik.programstudi');
 
         
         require 'admin/anggota/anggota.php';
@@ -68,16 +71,35 @@ Route::group(['middleware' => ['auth']], function () {
     });
     
 
-    // operator
-    // routes untuk operator
-    Route::group(['middleware' => ['role:operator'], 'prefix' => 'operator'], function () {
+    // pimpinan
+    // routes untuk pimpinan
+    Route::group(['middleware' => ['role:pimpinan'], 'prefix' => 'pimpinan'], function () {
         
         // dasbor
-        Route::get('/', [OperatorDasborController::class, 'index'])->name('operator.dasbor');
-        Route::get('/dasbor', [OperatorDasborController::class, 'index'])->name('operator.dasbor');
+        Route::get('/', [PimpinanDasborController::class, 'index'])->name('pimpinan.dasbor');
+        Route::get('/dasbor', [PimpinanDasborController::class, 'index'])->name('pimpinan.dasbor');
         
         // profil
-        Route::get('/profil', [OperatorDasborController::class, 'profil'])->name('operator.profil');
+        Route::get('/profil', [PimpinanDasborController::class, 'profil'])->name('pimpinan.profil');
+
+        // STATISTIK
+
+        // Statistik Anggota Berdasarkan Status
+        Route::get('/statistik/anggota', [AdminDasborController::class, 'getStatistikAnggota'])->name('pimpinan.statistik.anggota');
+        
+        // Statistik Alumni
+        Route::get('/statistik/alumni', [AdminDasborController::class, 'getStatistikAlumni'])->name('pimpinan.statistik.alumni');
+        
+        // Statistik Program Studi, Fakultas & Universitas
+        Route::get('/statistik/program-studi', [AdminDasborController::class, 'getStatistikProgramStudi'])->name('pimpinan.statistik.programstudi');
+
+        
+        require 'pimpinan/anggota/anggota.php';
+        
+        // data master
+        require 'pimpinan/datamaster/kampus.php';
+        require 'pimpinan/datamaster/fakultas.php';
+        require 'pimpinan/datamaster/programstudi.php';
 
     });
 

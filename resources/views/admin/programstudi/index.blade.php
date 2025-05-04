@@ -50,17 +50,20 @@
                             <td>{!! $item->keterangan !!}</td>
                             <td>
                             <div class="d-flex align-items-center">
-                                <a href="{{ route('admin.programstudi.show', $item->id) }}" class="btn btn-sm" title="Detail">
-                                <i class="fa fa-eye"></i> 
+                                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.programstudi.show', $item->id) : route('pimpinan.programstudi.show', $item->id) }}" class="btn btn-sm btn-primary d-flex align-items-center gap-2" title="Detail">
+                                    <i class="fa fa-eye"></i> Detail
                                 </a>
+
+                                @if(auth()->user()->hasRole('admin'))
                                 <a href="{{ route('admin.programstudi.edit', $item->id) }}" class="btn btn-sm" title="Ubah">
-                                <i class="fa fa-edit"></i> 
+                                    <i class="fa fa-edit"></i> 
                                 </a>
 
                                 <!-- Tombol Hapus -->
                                 <a href="#" class="btn btn-sm" data-bs-toggle="modal" data-bs-target="#forceDeleteModal{{ $item->id }}" title="Hapus Permanen">
-                                <i class="fa fa-trash"></i>
+                                    <i class="fa fa-trash"></i>
                                 </a>
+                                @endif
 
                             </div>
                             </td>
